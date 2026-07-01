@@ -4,29 +4,39 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-const STATIC_GLB_MAP: Record<string, string> = {
-  glasses_1: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  glasses_2: new URL('../../glb_files/glasses_2.glb', import.meta.url).href,
-  glasses_3: new URL('../../glb_files/glasses_3.glb', import.meta.url).href,
-  cafe: new URL('../../glb_files/cafe.glb', import.meta.url).href,
-  coffeemachine: new URL('../../glb_files/coffeemachine.glb', import.meta.url).href,
-  coffeegrinder: new URL('../../glb_files/coffeegrinder.glb', import.meta.url).href,
-  coffeepot: new URL('../../glb_files/coffeepot.glb', import.meta.url).href,
-  bag: new URL('../../glb_files/bag.glb', import.meta.url).href,
-  kettle: new URL('../../glb_files/kettle.glb', import.meta.url).href,
-  handdrip: new URL('../../glb_files/handdrip.glb', import.meta.url).href,
-  disposablecup: new URL('../../glb_files/disposablecup.glb', import.meta.url).href,
-  chair_table: new URL('../../glb_files/chair_table.glb', import.meta.url).href,
-  gaming_room: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  gaming_setup: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  gaming_chair: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  stage_set: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  stage_lighting: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  stage_props: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  video_edit: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  motion_graphics: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
-  video_story: new URL('../../glb_files/glasses_1.glb', import.meta.url).href,
+// 1. 파일 이름 리스트 관리 (여기를 수정하면 됩니다)
+const GLB_FILES: Record<string, string> = {
+  glasses_1: 'glasses_1.glb',
+  glasses_2: 'glasses_2.glb',
+  glasses_3: 'glasses_3.glb',
+  cafe: 'cafe.glb',
+  coffeemachine: 'coffeemachine.glb',
+  coffeegrinder: 'coffeegrinder.glb',
+  coffeepot: 'coffeepot.glb',
+  bag: 'bag.glb',
+  kettle: 'kettle.glb',
+  handdrip: 'handdrip.glb',
+  disposablecup: 'disposablecup.glb',
+  chair_table: 'chair_table.glb',
+  // gaming_room: 'glasses_1.glb',      // TODO: 실제 파일명으로 수정 필요
+  // gaming_setup: 'glasses_1.glb',     // TODO: 실제 파일명으로 수정 필요
+  // gaming_chair: 'glasses_1.glb',     // TODO: 실제 파일명으로 수정 필요
+  // stage_set: 'glasses_1.glb',        // TODO: 실제 파일명으로 수정 필요
+  // stage_lighting: 'glasses_1.glb',   // TODO: 실제 파일명으로 수정 필요
+  // stage_props: 'glasses_1.glb',      // TODO: 실제 파일명으로 수정 필요
+  // video_edit: 'glasses_1.glb',       // TODO: 실제 파일명으로 수정 필요
+  // motion_graphics: 'glasses_1.glb',  // TODO: 실제 파일명으로 수정 필요
+  // video_story: 'glasses_1.glb',      // TODO: 실제 파일명으로 수정 필요
 };
+
+// 2. 실제 코드에서 사용할 경로 맵 자동 생성
+export const STATIC_GLB_MAP = Object.fromEntries(
+  Object.entries(GLB_FILES).map(([key, filename]) => [
+    key, 
+    `${import.meta.env.BASE_URL}glb_files/${filename}`
+  ])
+);
+
 const STATIC_GLB_IDS = new Set(Object.keys(STATIC_GLB_MAP));
 
 // ─── IndexedDB ────────────────────────────────────────────────────────────────
@@ -167,7 +177,7 @@ const PORTFOLIO: PortfolioGroup[] = [
       { id: "glasses_1", title: "안경", desc: "기본 안경 모델링", thumb: "./images/glasses_1.png" },
       { id: "glasses_2", title: "K-style 안경", desc: "K-style 안경 모델", thumb: "./images/glasses_2.png" },
       { id: "glasses_3", title: "VR 안경", desc: "VR Glasses 모델링", thumb: "./images/glasses_3.png" },
-      { id: "glass_project_process", title: "안경 제작 과정", desc: "제작 과정 설명 페이지", thumb: "./images/glass_project_process.png", isProcess: true, link: "/glasses_project/index.html" },
+      { id: "glass_project_process", title: "안경 제작 과정", desc: "제작 과정 설명 페이지", thumb: "./images/glass_project_process.png", isProcess: true, link: "3d_object_portfolio_v2/glasses_project/index.html" },
       { id: "glasses_result_gallery", title: "안경 결과 렌더링", desc: "안경 프로젝트 결과 이미지와 영상", thumb: "./images/glasses/1.png", mediaType: "gallery", galleryImages: [
         "./images/glasses/1.png",
         "./images/glasses/2.png",
@@ -217,7 +227,7 @@ const PORTFOLIO: PortfolioGroup[] = [
       { id: "handdrip", title: "Handdrip Coffee", desc: "스타일라이즈드 컨셉 핸드드립 커피 모델링", thumb: "./images/handdrip.png" },
       { id: "disposablecup", title: "일회용 컵", desc: "스타일라이즈드 컨셉 일회용 컵 모델링", thumb: "./images/disposablecup.png" },
       { id: "chair_table", title: "의자 · 테이블", desc: "스타일라이즈드 컨셉 의자, 테이블 모델링", thumb: "./images/chair_table.png" },
-      { id: "cafe_project_process", title: "카페 공간 제작 과정", desc: "스타일라이즈드 컨셉 공간 제작 설명 페이지", thumb: "./images/cafe_project_process.png", isProcess: true, link: "/cafe_project/index.html" },
+      { id: "cafe_project_process", title: "카페 공간 제작 과정", desc: "스타일라이즈드 컨셉 공간 제작 설명 페이지", thumb: "./images/cafe_project_process.png", isProcess: true, link: "3d_object_portfolio_v2/cafe_project/index.html" },
       { id: "cafe_result_gallery", title: "카페 결과 렌더링", desc: "카페 프로젝트 결과 이미지와 영상", thumb: "./images/cafe/0.jpeg", mediaType: "gallery", galleryImages: [
         "./images/cafe/0.jpeg",
         "./images/cafe/1.jpeg",
