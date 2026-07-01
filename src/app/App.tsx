@@ -167,7 +167,7 @@ const PORTFOLIO: PortfolioGroup[] = [
       { id: "glasses_1", title: "안경", desc: "기본 안경 모델링", thumb: "./images/glasses_1.png" },
       { id: "glasses_2", title: "K-style 안경", desc: "K-style 안경 모델", thumb: "./images/glasses_2.png" },
       { id: "glasses_3", title: "VR 안경", desc: "VR Glasses 모델링", thumb: "./images/glasses_3.png" },
-      { id: "glass_project_process", title: "안경 제작 과정", desc: "제작 과정 설명 페이지", thumb: "./images/glass_project_process.png", isProcess: true, link: "./work_process/glasses_project/glasses_project.html" },
+      { id: "glass_project_process", title: "안경 제작 과정", desc: "제작 과정 설명 페이지", thumb: "./images/glass_project_process.png", isProcess: true, link: "./public/glasses_project/index.html" },
       { id: "glasses_result_gallery", title: "안경 결과 렌더링", desc: "안경 프로젝트 결과 이미지와 영상", thumb: "./images/glasses/1.png", mediaType: "gallery", galleryImages: [
         "./images/glasses/1.png",
         "./images/glasses/2.png",
@@ -217,7 +217,7 @@ const PORTFOLIO: PortfolioGroup[] = [
       { id: "handdrip", title: "Handdrip Coffee", desc: "스타일라이즈드 컨셉 핸드드립 커피 모델링", thumb: "./images/handdrip.png" },
       { id: "disposablecup", title: "일회용 컵", desc: "스타일라이즈드 컨셉 일회용 컵 모델링", thumb: "./images/disposablecup.png" },
       { id: "chair_table", title: "의자 · 테이블", desc: "스타일라이즈드 컨셉 의자, 테이블 모델링", thumb: "./images/chair_table.png" },
-      { id: "cafe_project_process", title: "카페 공간 제작 과정", desc: "스타일라이즈드 컨셉 공간 제작 설명 페이지", thumb: "./images/cafe_project_process.png", isProcess: true, link: "./work_process/cafe_project/cafe_project.html" },
+      { id: "cafe_project_process", title: "카페 공간 제작 과정", desc: "스타일라이즈드 컨셉 공간 제작 설명 페이지", thumb: "./images/cafe_project_process.png", isProcess: true, link: "./public/cafe_project/index.html" },
       { id: "cafe_result_gallery", title: "카페 결과 렌더링", desc: "카페 프로젝트 결과 이미지와 영상", thumb: "./images/cafe/0.jpeg", mediaType: "gallery", galleryImages: [
         "./images/cafe/0.jpeg",
         "./images/cafe/1.jpeg",
