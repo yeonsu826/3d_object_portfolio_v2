@@ -145,8 +145,11 @@ interface PortfolioItem {
   title: string;
   desc: string;
   thumb: string;
-  mediaType?: 'image' | 'model' | 'video';
+  mediaType?: 'image' | 'model' | 'video' | 'gallery';
   mediaSrc?: string; // optional filename base for model/video sources
+  galleryImages?: string[];
+  videoSrc?: string;
+  videoLinks?: string[];
   isProcess?: boolean; // process/link cards
   link?: string;
 }
@@ -165,6 +168,40 @@ const PORTFOLIO: PortfolioGroup[] = [
       { id: "glasses_2", title: "K-style 안경", desc: "K-style 안경 모델", thumb: "./images/glasses_2.png" },
       { id: "glasses_3", title: "VR 안경", desc: "VR Glasses 모델링", thumb: "./images/glasses_3.png" },
       { id: "glass_project_process", title: "안경 제작 과정", desc: "제작 과정 설명 페이지", thumb: "./images/glass_project_process.png", isProcess: true, link: "./work_process/glasses_project/glasses_project.html" },
+      { id: "glasses_result_gallery", title: "안경 결과 렌더링", desc: "안경 프로젝트 결과 이미지와 영상", thumb: "./images/glasses/1.png", mediaType: "gallery", galleryImages: [
+        "./images/glasses/1.png",
+        "./images/glasses/2.png",
+        "./images/glasses/3.png",
+        "./images/glasses/4.png",
+        "./images/glasses/5.png",
+        "./images/glasses/6.png",
+        "./images/glasses/7.png",
+        "./images/glasses/8.png",
+        "./images/glasses/9.png",
+        "./images/glasses/10.png",
+        "./images/glasses/11.png",
+        "./images/glasses/12.png",
+        "./images/glasses/13.png",
+        "./images/glasses/14.png",
+        "./images/glasses/15.png",
+        "./images/glasses/16.png",
+        "./images/glasses/17.png",
+        "./images/glasses/18.png",
+        "./images/glasses/19.png",
+        "./images/glasses/20.png",
+        "./images/glasses/21.png",
+        "./images/glasses/22.png",
+        "./images/glasses/23.png",
+        "./images/glasses/24.png",
+        "./images/glasses/25.png",
+        "./images/glasses/26.png",
+        "./images/glasses/27.png",
+        "./images/glasses/28.png",
+        "./images/glasses/29.png",
+      ], videoLinks: [
+        "https://drive.google.com/file/d/1dTS_g03Vwdw9BfpnFqk0ZQC4ey5lu9zM/view?usp=drive_link",
+        "https://drive.google.com/file/d/1XkE5SO1fS3AC-Kcrp3KGZinesodA1TJI/view?usp=drive_link",
+      ] },
     ],
   },
   {
@@ -181,35 +218,76 @@ const PORTFOLIO: PortfolioGroup[] = [
       { id: "disposablecup", title: "일회용 컵", desc: "스타일라이즈드 컨셉 일회용 컵 모델링", thumb: "./images/disposablecup.png" },
       { id: "chair_table", title: "의자 · 테이블", desc: "스타일라이즈드 컨셉 의자, 테이블 모델링", thumb: "./images/chair_table.png" },
       { id: "cafe_project_process", title: "카페 공간 제작 과정", desc: "스타일라이즈드 컨셉 공간 제작 설명 페이지", thumb: "./images/cafe_project_process.png", isProcess: true, link: "./work_process/cafe_project/cafe_project.html" },
+      { id: "cafe_result_gallery", title: "카페 결과 렌더링", desc: "카페 프로젝트 결과 이미지와 영상", thumb: "./images/cafe/0.jpeg", mediaType: "gallery", galleryImages: [
+        "./images/cafe/0.jpeg",
+        "./images/cafe/1.jpeg",
+        "./images/cafe/2.jpeg",
+        "./images/cafe/3.jpeg",
+        "./images/cafe/4.jpeg",
+        "./images/cafe/5.jpeg",
+        "./images/cafe/6.jpeg",
+      ], videoLinks: [
+        "https://drive.google.com/file/d/1Gcl7gPJSkSSYWH6YBFoNTYB_78xN2WFp/view?usp=drive_link",
+        "https://drive.google.com/file/d/1buT0a9OPEFYPeK3YSYEcteHSf8nRteZb/view?usp=sharing",
+      ] },
     ],
   },
   {
     groupName: "게이밍룸 프로젝트",
     emoji: "🎮",
     items: [
-      { id: "gaming_room", title: "게이밍룸", desc: "게이밍룸 인테리어 및 레이아웃 디자인", thumb: "./images/cafe.jpeg" },
-      { id: "gaming_setup", title: "게이밍 셋업", desc: "PC 데스크와 조명 컨셉 모델링", thumb: "./images/coffeegrinder.png" },
-      { id: "gaming_chair", title: "게이밍 체어", desc: "스타일리시 게이밍 체어 모델링", thumb: "./images/chair_table.png" },
+      { id: "gamingroom_result_gallery", title: "게이밍룸 결과 렌더링", desc: "게이밍룸 프로젝트 이미지 갤러리", thumb: "./images/gamingroom/1.jpeg", mediaType: "gallery", galleryImages: [
+        "./images/gamingroom/1.jpeg",
+        "./images/gamingroom/2.jpeg",
+        "./images/gamingroom/3.jpeg",
+        "./images/gamingroom/4.jpeg",
+        "./images/gamingroom/5.jpeg",
+        "./images/gamingroom/6.jpeg",
+        "./images/gamingroom/7.jpeg",
+        "./images/gamingroom/8.jpeg",
+        "./images/gamingroom/9.jpeg",
+        "./images/gamingroom/10.jpeg",
+        "./images/gamingroom/11.jpeg",
+        "./images/gamingroom/12.jpeg",
+      ] },
     ],
   },
   {
     groupName: "무대 디자인 프로젝트",
     emoji: "🎭",
     items: [
-      { id: "stage_set", title: "무대 세트", desc: "공연 무대 조형물 및 설치 디자인", thumb: "./images/coffeemachine.png" },
-      { id: "stage_lighting", title: "무대 조명", desc: "연출감을 살린 조명 구성 모델링", thumb: "./images/coffeepot.png" },
-      { id: "stage_props", title: "소품 세트", desc: "무대용 소품과 배경 디자인", thumb: "./images/bag.png" },
+      { id: "stage_result_gallery", title: "무대 결과 렌더링", desc: "무대 디자인 프로젝트 이미지 갤러리", thumb: "./images/stage/1.jpeg", mediaType: "gallery", galleryImages: [
+        "./images/stage/1.jpeg",
+        "./images/stage/2.jpeg",
+        "./images/stage/B.jpeg",
+        "./images/stage/H.jpeg",
+        "./images/stage/J.jpeg",
+      ] },
     ],
   },
   {
-    groupName: "영상",
-    emoji: "🎬",
+    groupName: "개발 프로젝트 아카이브",
+    emoji: "🗃️",
     items: [
-      { id: "video_edit", title: "영상 편집", desc: "시네마틱 영상 편집 콘셉트", thumb: "./images/glasses_1.png" },
-      { id: "motion_graphics", title: "모션 그래픽", desc: "브랜딩 모션 그래픽 디자인", thumb: "./images/glasses_2.png" },
-      { id: "video_story", title: "비디오 스토리텔링", desc: "스토리 기반 영상 연출", thumb: "./images/glasses_3.png" },
+      {
+        id: "dev_archive",
+        title: "개발 프로젝트 아카이브",
+        desc: "About Me에서 이동한 개발 프로젝트 아카이브 링크입니다.",
+        thumb: "./images/dev.jpg",
+        link: "https://kaput-muskox-1f4.notion.site/2a3a13adf6c48050b9b5cfe097165b8c",
+      },
     ],
   },
+  // 숨김 처리: 영상 프로젝트 (나중에 사용 예정)
+  // {
+  //   groupName: "영상",
+  //   emoji: "🎬",
+  //   items: [
+  //     { id: "video_edit", title: "영상 편집", desc: "시네마틱 영상 편집 콘셉트", thumb: "./images/glasses_1.png" },
+  //     { id: "motion_graphics", title: "모션 그래픽", desc: "브랜딩 모션 그래픽 디자인", thumb: "./images/glasses_2.png" },
+  //     { id: "video_story", title: "비디오 스토리텔링", desc: "스토리 기반 영상 연출", thumb: "./images/glasses_3.png" },
+  //   ],
+  // },
 ];
 
 const TOOLS = [
@@ -353,15 +431,29 @@ function WorkModal({ item, glbData, videoData, meta, editMode, onClose, onSaveMe
 }) {
   const [autoRotate, setAutoRotate] = useState(false);
   const [editingMeta, setEditingMeta] = useState<Meta>(meta || {});
+  const [galleryIndex, setGalleryIndex] = useState(0);
+  const [lightbox, setLightbox] = useState<{ type: 'image' | 'video'; src: string; index?: number } | null>(null);
 
   useEffect(() => { document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = ""; }; }, []);
   useEffect(() => {
-    const fn = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    const fn = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (lightbox) {
+          setLightbox(null);
+        } else {
+          onClose();
+        }
+      }
+    };
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
-  }, [onClose]);
+  }, [onClose, lightbox]);
 
-  useEffect(() => setEditingMeta(meta || {}), [meta]);
+  useEffect(() => {
+    setEditingMeta(meta || {});
+    setGalleryIndex(0);
+    setLightbox(null);
+  }, [meta, item.id]);
 
   return (
     <div className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
@@ -390,16 +482,61 @@ function WorkModal({ item, glbData, videoData, meta, editMode, onClose, onSaveMe
         {/* Viewer + Meta */}
         <div className="flex-1 overflow-auto p-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="col-span-1 bg-[#0a0a10] flex items-center justify-center">
-              <img src={item.thumb} alt={item.title} className="max-h-[60vh] object-contain" />
+            <div className="col-span-1 bg-[#0a0a10] flex flex-col gap-3 p-4">
+              <div className="h-[320px] md:h-[380px] lg:h-[420px] bg-[#0a0a10] flex items-center justify-center overflow-hidden">
+                {item.mediaType === "gallery" ? (
+                  item.galleryImages && item.galleryImages.length > 0 ? (
+                    <button type="button" onClick={() => {
+                      const src = item.galleryImages?.[galleryIndex];
+                      if (src) setLightbox({ type: 'image', src, index: galleryIndex });
+                    }} className="w-full h-full">
+                      <img src={item.galleryImages?.[galleryIndex] ?? ''} alt={`${item.title} ${galleryIndex + 1}`} className="w-full h-full object-contain cursor-zoom-in" />
+                    </button>
+                  ) : (
+                    <div className="flex items-center justify-center text-muted-foreground h-full">이미지 갤러리가 없습니다</div>
+                  )
+                ) : glbData ? (
+                  <ThreeCanvas glbUrl={glbData.url} autoRotate={autoRotate} />
+                ) : videoData ? (
+                  <video src={videoData.url} controls className="w-full h-full object-contain" />
+                ) : (
+                  <div className="flex items-center justify-center text-muted-foreground h-full">3D 모델 없음</div>
+                )}
+              </div>
+              {item.mediaType === "gallery" && item.galleryImages && item.galleryImages.length > 1 && (
+                <div className="grid grid-cols-4 gap-2">
+                  {item.galleryImages.map((src, index) => (
+                    <button key={src} type="button" onClick={() => setGalleryIndex(index)}
+                      className={`overflow-hidden rounded border ${index === galleryIndex ? 'border-primary' : 'border-border'} bg-[#09090f]`}
+                    >
+                      <img src={src} alt={`${item.title} thumb ${index + 1}`} className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-            <div className="col-span-1 bg-[#0a0a10] relative h-[320px] md:h-[380px] lg:h-[420px]">
-              {glbData ? (
-                <ThreeCanvas glbUrl={glbData.url} autoRotate={autoRotate} />
+            <div className="col-span-1 bg-[#0a0a10] relative h-[320px] md:h-[380px] lg:h-[420px] p-4">
+              {item.mediaType === "gallery" ? (
+                item.videoLinks && item.videoLinks.length > 0 ? (
+                  <div className="h-full w-full rounded-md border border-border bg-black/70 p-4 flex flex-col gap-3">
+                    {item.videoLinks.map((link, index) => (
+                      <a key={link} href={link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-white/95 text-sm font-medium text-black px-4 py-3 hover:bg-white transition-colors">
+                        영상 {index + 1} 열기
+                      </a>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center h-full gap-3 p-4 text-muted-foreground">
+                    <p className="font-['Fraunces'] text-base">영상 링크가 없습니다.</p>
+                    <p className="text-xs">Google Drive 링크를 item.videoLinks에 설정해주세요.</p>
+                  </div>
+                )
+              ) : glbData ? (
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">3D 모델을 회전시키려면 왼쪽을 확인하세요.</div>
               ) : videoData ? (
-                <video src={videoData.url} controls className="w-full h-full object-contain" />
+                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">비디오가 이미 왼쪽에 표시됩니다.</div>
               ) : (
-                <div className="flex items-center justify-center text-muted-foreground h-full">3D 모델 없음</div>
+                <div className="flex items-center justify-center text-muted-foreground h-full">미디어가 없습니다</div>
               )}
             </div>
             <div className="col-span-1 bg-card p-4">
@@ -444,6 +581,44 @@ function WorkModal({ item, glbData, videoData, meta, editMode, onClose, onSaveMe
           </div>
         </div>
       </div>
+      {lightbox && (
+        <div className="fixed inset-0 z-[110] bg-black/90 flex items-center justify-center p-8" onClick={() => setLightbox(null)}>
+          <div className="relative w-full max-w-[90vw] max-h-[90vh] flex items-center justify-center p-8" onClick={(e) => e.stopPropagation()}>
+            <button type="button" onClick={() => setLightbox(null)} className="absolute top-4 right-4 z-20 rounded-full bg-white/90 p-2 text-black">
+              <X size={18} />
+            </button>
+            {lightbox.type === 'image' ? (
+              <>
+                <button type="button" disabled={lightbox.index === 0} onClick={() => {
+                  if (lightbox.index != null && item.galleryImages) {
+                    const prevIndex = Math.max(0, lightbox.index - 1);
+                    setLightbox({ type: 'image', src: item.galleryImages[prevIndex], index: prevIndex });
+                    setGalleryIndex(prevIndex);
+                  }
+                }} className="absolute left-4 z-20 rounded-full bg-white/90 p-2 text-black disabled:opacity-40 disabled:cursor-not-allowed">
+                  ◀
+                </button>
+                <img src={lightbox.src} alt="Large view" className="max-w-full max-h-full object-contain" />
+                <button type="button" disabled={lightbox.index == null || (item.galleryImages ? lightbox.index >= item.galleryImages.length - 1 : true)} onClick={() => {
+                  if (lightbox.index != null && item.galleryImages) {
+                    const nextIndex = Math.min(item.galleryImages.length - 1, lightbox.index + 1);
+                    setLightbox({ type: 'image', src: item.galleryImages[nextIndex], index: nextIndex });
+                    setGalleryIndex(nextIndex);
+                  }
+                }} className="absolute right-4 z-20 rounded-full bg-white/90 p-2 text-black disabled:opacity-40 disabled:cursor-not-allowed">
+                  ▶
+                </button>
+              </>
+            ) : (
+              <a href={lightbox.src} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+                <div className="flex h-full w-full items-center justify-center rounded-md border border-white/20 bg-black/80 p-8 text-center text-sm text-white">
+                  Google Drive에서 영상 보기
+                </div>
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -534,19 +709,24 @@ function ItemCard({ item, has3d, hasDbGlb, hasVideo, editMode, onRefresh, onClic
     );
   }
 
-  return (
-    <div onClick={onClick}
-      className="group flex flex-col overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 bg-card cursor-pointer">
+  const cardContent = (
+    <>
       <div className="relative aspect-[4/3] overflow-hidden bg-[#0a0a10]">
         <img src={item.thumb} alt={item.title} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
-        {/* 3D badge */}
-        {has3d && (
+        {/* 3D / Gallery badge */}
+        {item.mediaType === "gallery" ? (
+          <div className="absolute top-2 left-2">
+            <span className="flex items-center gap-1 font-['JetBrains_Mono'] text-xs tracking-widest uppercase bg-secondary text-foreground px-2 py-0.5">
+              GALLERY
+            </span>
+          </div>
+        ) : has3d ? (
           <div className="absolute top-2 left-2">
             <span className="flex items-center gap-1 font-['JetBrains_Mono'] text-xs tracking-widest uppercase bg-primary text-primary-foreground px-2 py-0.5">
               <Box size={9} /> 3D
             </span>
           </div>
-        )}
+        ) : null}
         {hasVideo && (
           <div className="absolute top-2 right-2">
             <span className="font-['JetBrains_Mono'] text-[9px] tracking-widest uppercase bg-secondary/90 text-foreground px-2 py-0.5">
@@ -557,7 +737,7 @@ function ItemCard({ item, has3d, hasDbGlb, hasVideo, editMode, onRefresh, onClic
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <span className="font-['Figtree'] text-sm text-foreground border border-foreground/30 px-4 py-2">
-            {has3d ? "3D 모델 보기" : "자세히 보기"}
+            {item.mediaType === "gallery" ? "갤러리 보기" : has3d ? "3D 모델 보기" : "자세히 보기"}
           </span>
         </div>
       </div>
@@ -573,6 +753,22 @@ function ItemCard({ item, has3d, hasDbGlb, hasVideo, editMode, onRefresh, onClic
           </div>
         )}
       </div>
+    </>
+  );
+
+  if (item.link && !item.isProcess) {
+    return (
+      <a href={item.link} target="_blank" rel="noopener noreferrer"
+        className="group flex flex-col overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 bg-card cursor-pointer">
+        {cardContent}
+      </a>
+    );
+  }
+
+  return (
+    <div onClick={onClick}
+      className="group flex flex-col overflow-hidden border border-border hover:border-primary/40 transition-all duration-300 bg-card cursor-pointer">
+      {cardContent}
     </div>
   );
 }
@@ -600,19 +796,16 @@ function Nav({ editMode, onLogoClick }: { editMode: boolean; onLogoClick: () => 
           </span>
         )}
         <ul className="hidden md:flex items-center gap-10">
-          {["Works", "About", "Contact"].map((l) => (
+          {["Works", "About"].map((l) => (
             <li key={l}><a href={`#${l.toLowerCase()}`} className="font-['Figtree'] text-sm text-muted-foreground hover:text-foreground transition-colors tracking-widest uppercase">{l}</a></li>
           ))}
         </ul>
-        <a href="#contact" className="hidden md:flex items-center gap-2 font-['Figtree'] text-sm font-medium bg-primary text-primary-foreground px-5 py-2.5 hover:bg-primary/85 transition-colors">
-          Hire Me <ArrowUpRight size={14} />
-        </a>
         <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">{open ? <X size={22} /> : <Menu size={22} />}</button>
       </nav>
       {open && (
         <div className="md:hidden bg-card border-b border-border px-8 py-6">
           <ul className="flex flex-col gap-5">
-            {["Works", "About", "Contact"].map((l) => (
+            {["Works", "About"].map((l) => (
               <li key={l}><a href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)} className="font-['Figtree'] text-base text-foreground tracking-widest uppercase">{l}</a></li>
             ))}
           </ul>
@@ -624,18 +817,12 @@ function Nav({ editMode, onLogoClick }: { editMode: boolean; onLogoClick: () => 
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
+const glbCountStatic = Object.keys(import.meta.glob('../../glb_files/*.{glb,gltf}', { eager: true, as: 'url' })).length;
+const renderImageCountStatic = Object.keys(import.meta.glob('../../images/{cafe,glasses,gamingroom,stage}/*.{png,jpg,jpeg}', { eager: true, as: 'url' })).length;
+const videoCountStatic = 4;
+
 function Hero() {
   const totalItems = PORTFOLIO.reduce((acc, g) => acc + g.items.filter(i => !i.isProcess).length, 0);
-  const [glbCount, setGlbCount] = useState(0);
-  const [videoCount, setVideoCount] = useState(0);
-
-  const refreshCounts = useCallback(async () => {
-    const [g, v] = await Promise.all([listGlbIds(), listVideoIds()]);
-    setGlbCount(new Set([...STATIC_GLB_IDS, ...g]).size);
-    setVideoCount(v.length);
-  }, []);
-
-  useEffect(() => { refreshCounts(); window.addEventListener('db-changed', refreshCounts); return () => window.removeEventListener('db-changed', refreshCounts); }, [refreshCounts]);
 
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden bg-background flex flex-col justify-end">
@@ -657,8 +844,9 @@ function Hero() {
         <div className="flex flex-wrap gap-10 mt-14 pt-8 border-t border-border">
           {[
             { value: String(PORTFOLIO.length), label: "프로젝트 그룹" },
-            { value: String(glbCount), label: "업로드된 3D 모델" },
-            { value: String(videoCount), label: "업로드된 영상" },
+            { value: String(glbCountStatic), label: "업로드된 3D 모델" },
+            { value: String(renderImageCountStatic), label: "업로드된 렌더링 이미지" },
+            { value: String(videoCountStatic), label: "업로드된 영상" },
           ].map((s) => (
             <div key={s.label} className="flex flex-col gap-1">
               <span className="font-['Fraunces'] font-semibold text-3xl text-primary">{s.value}</span>
@@ -696,13 +884,17 @@ function Works({ editMode }: { editMode: boolean }) {
     setModalExtra({ videoData: null, meta: fallbackMeta });
 
     try {
-      const [dbGlb, video] = await Promise.all([loadGlb(item.id), loadVideo(item.id)]);
-      const glb = dbGlb ?? getGlbUrl(item.id);
+      const video = await loadVideo(item.id);
+      let glb = null;
+      if (item.mediaType !== "gallery") {
+        const dbGlb = await loadGlb(item.id);
+        glb = dbGlb ?? getGlbUrl(item.id);
+      }
       setSelectedGlb(glb);
       setModalExtra({ videoData: video, meta: fallbackMeta });
     } catch (error) {
       console.error('포트폴리오 미디어 로드 실패', error);
-      setSelectedGlb(getGlbUrl(item.id));
+      setSelectedGlb(item.mediaType !== "gallery" ? getGlbUrl(item.id) : null);
       setModalExtra({ videoData: null, meta: fallbackMeta });
     }
   };
@@ -827,61 +1019,22 @@ function About() {
                   </span>
                 ))}
               </div>
-              <div className="mt-8 flex justify-center lg:justify-start">
-                <a href="https://kaput-muskox-1f4.notion.site/2a3a13adf6c48050b9b5cfe097165b8c" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-['JetBrains_Mono'] text-xs tracking-widest uppercase border border-border bg-card px-4 py-3 text-foreground hover:border-primary hover:text-primary transition-colors">
-                  개발 프로젝트 아카이브 <ExternalLink size={14} />
-                </a>
+            </div>
+            <div className="border-t border-border pt-8">
+              <p className="font-['JetBrains_Mono'] text-xs text-muted-foreground tracking-widest uppercase mb-6">Contact</p>
+              <div className="flex flex-wrap gap-3">
+                <a href="https://www.instagram.com/yeon_ddooo/" target="_blank" rel="noopener noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+                    <Instagram size={18} />
+                    <span className="sr-only">Instagram</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/yeonsu0826/" target="_blank" rel="noopener noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-primary">
+                    <Linkedin size={18} />
+                    <span className="sr-only">LinkedIn</span>
+                  </a>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
-// ─── Contact ──────────────────────────────────────────────────────────────────
-
-function Contact() {
-  return (
-    <section id="contact" className="bg-background border-t border-border py-32">
-      <div className="max-w-[1400px] mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <p className="font-['JetBrains_Mono'] text-xs text-primary tracking-widest uppercase mb-6">04 — Contact</p>
-            <h2 className="font-['Fraunces'] font-light text-foreground leading-tight mb-8" style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}>
-              함께 만들어봐요<br /><em className="italic text-primary">unforgettable.</em>
-            </h2>
-            <div className="flex gap-4 mt-10">
-              <a href="https://www.instagram.com/yeon_ddooo/" target="_blank" rel="noopener noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-primary">
-                <Instagram size={18} />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href="https://www.linkedin.com/in/yeonsu0826/" target="_blank" rel="noopener noreferrer" className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary hover:text-primary">
-                <Linkedin size={18} />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-            </div>
           </div>
-          <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex flex-col gap-2">
-                <label className="font-['JetBrains_Mono'] text-xs text-muted-foreground tracking-widest uppercase">이름</label>
-                <input type="text" placeholder="홍길동" className="bg-card border border-border text-foreground font-['Figtree'] text-sm px-4 py-3 placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="font-['JetBrains_Mono'] text-xs text-muted-foreground tracking-widest uppercase">이메일</label>
-                <input type="email" placeholder="your@email.com" className="bg-card border border-border text-foreground font-['Figtree'] text-sm px-4 py-3 placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" />
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="font-['JetBrains_Mono'] text-xs text-muted-foreground tracking-widest uppercase">메시지</label>
-              <textarea rows={5} placeholder="작업 문의, 협업 제안..." className="bg-card border border-border text-foreground font-['Figtree'] text-sm px-4 py-3 placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none" />
-            </div>
-            <button type="submit" className="flex items-center justify-center gap-2 bg-primary text-primary-foreground font-['Figtree'] text-sm font-medium py-4 px-8 hover:bg-primary/85 transition-colors mt-2">
-              보내기 <ArrowUpRight size={16} />
-            </button>
-          </form>
         </div>
       </div>
     </section>
@@ -923,7 +1076,6 @@ export default function App() {
       <Hero />
       <Works editMode={editMode} />
       <About />
-      <Contact />
       <Footer />
     </div>
   );
