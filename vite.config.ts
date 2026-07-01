@@ -51,14 +51,12 @@ function serveGlbFilesPlugin() {
 export default defineConfig({
   base: '/3d_object_portfolio_v2/', 
   plugins: [
-    figmaAssetResolver(),
-    serveGlbFilesPlugin(),
+    // figmaAssetResolver(), // 필요시 유지
     react(),
     tailwindcss(),
   ],
   resolve: {
     alias: {
-      // Alias @ to the src directory
       '@': path.resolve(__dirname, './src'),
     },
   },
